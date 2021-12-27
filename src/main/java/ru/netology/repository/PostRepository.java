@@ -6,10 +6,11 @@ import ru.netology.model.Post;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class PostRepository {
-    private final List<Post> posts = new ArrayList<>();
+    private final List<Post> posts = new CopyOnWriteArrayList<>();
     private final AtomicLong count = new AtomicLong();
     public List<Post> all() {
         return posts;
