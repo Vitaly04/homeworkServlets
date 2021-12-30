@@ -4,7 +4,9 @@ import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.repository.PostRepository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PostService {
     private final PostRepository repository;
@@ -14,7 +16,11 @@ public class PostService {
     }
 
     public List<Post> all() {
-        return repository.all();
+        List<Post> postList = new ArrayList<>();
+        for (Map.Entry<Long, Post> posts : repository.all().entrySet()) {
+            postList.add(posts.getValue());
+        }
+        return postList;
     }
 
     public Post getById(long id) {
