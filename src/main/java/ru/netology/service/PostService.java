@@ -15,12 +15,8 @@ public class PostService {
         this.repository = repository;
     }
 
-    public List<Post> all() {
-        List<Post> postList = new ArrayList<>();
-        for (Map.Entry<Long, Post> posts : repository.all().entrySet()) {
-            postList.add(posts.getValue());
-        }
-        return postList;
+    public Map<Long, Post> all() {
+        return repository.all();
     }
 
     public Post getById(long id) {
