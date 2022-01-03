@@ -21,9 +21,6 @@ public class MainServlet extends HttpServlet {
 
         controller = (PostController) context.getBean("postController");
 
-        final var service = context.getBean(PostService.class);
-
-        final var isSame = service == context.getBean("postService");
     }
 
     @Override
