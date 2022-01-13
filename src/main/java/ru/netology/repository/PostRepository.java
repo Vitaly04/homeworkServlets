@@ -15,16 +15,11 @@ public class PostRepository {
     private final AtomicLong count = new AtomicLong();
 
     public List<Post> all() {
-        List<Post> postList = new ArrayList<>();
-        for (Map.Entry<Long, Post> posts : posts.entrySet()) {
-            postList.add(posts.getValue());
-        }
-        return postList;
+        return new ArrayList<>(posts.values());
     }
 
     public Optional<Post> getById(long id) {
-        if (posts.containsKey(id)) return Optional.of(posts.get(id));
-        return Optional.empty();
+        return Optional.ofNullable(posts.get(id));
     }
 
     public Post save(Post post) {
